@@ -1,0 +1,59 @@
+# Site
+repository: sproogen/resume-theme
+# favicon: images/favicon.ico
+
+# Personal info
+name: Malte Quast
+title: Data Analytics Consultant
+email: malte.quast@datadrivers.de
+
+# Social links
+twitter_username: QuastMalte
+github_username:  maltequast
+# dribbble_username: jekyll
+# facebook_username: jekyll
+# flickr_username: jekyll
+#instagram_username: chillwildlife
+linkedin_username: malte-quast-0452a7121
+# pinterest_username: jekyll
+#youtube_username: globalmtb
+# googleplus_username: +jekyll
+
+# About Section
+# about_title: About Me
+about_profile_image: images/profile.jpg
+about_content: | # this will include new lines to allow paragraphs
+  Hi, mein Name ist Malte. Ich arbeite aktuell bei der Datadrivers GmbH als Data Analytics Consultant und berate Deutschlandweit Unternehmen im Bereich Predictive Analytics und Datenverarbeitung in Datawarehouses. Durch viele unterschiedliche Kunden kenne ich mich in vielen Bereichen wie Cloud oder On-Premises Lösungen aus und berate ebenfalls im Bereich BI Lösungen wie Tableau. Automatisierung und Transparenz liegen mir bei den Projekten besonders am Herzen um die Kundenwünsche möglichst genau zu erfüllen und nachhaltigen Wachstum zu garantieren. Um nach einem stressigen Alltag den Kopf frei zu kriegen bin ich in meiner Freizeit auch häufiger auf dem Golfplatz oder in der Squashhalle zu finden. Ansonsten findet man mich auch gerne auf einem Sonntagmorgen im Cafè zum Frühstück. Bei Fragen zu Projekten meldet euch gerne bei mir.   
+
+  Mein Fachgebiet ist: <mark>Machine-</mark> und <mark>Deep-Learning</mark>
+
+# Projects Section
+# projects_title: Projects
+
+# Experience Section
+# experience_title: Experience
+
+# Education Section
+# educaton_title: Education
+
+# More Section
+# more_title: A Little More About Me
+more_content: | # this will include new lines to allow paragraphs
+  Neben meinem großen Interesse an Statistik und Machine Learning interessiere ich mich ebenso für:
+   - Reisen
+   - Golf
+   - Fußball
+   - Squashen
+
+# Footer
+footer_show_references: true
+
+# Build settings
+remote_theme: sproogen/resume-theme
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+ - jekyll-seo-tag
