@@ -14,5 +14,39 @@
   quote: >
    Connect the digital and real world
   description: | # this will include new lines to allow paragraphs
-    Ich habe dieses Unternehmen gegründet und das Ziel war es eine Gruppe von Menschen durch einen spielerischen Ansatz durch die Stadt zu führen um neue Spots und seinen gegenüber kennenzulernen. Mithilfe einer iOS App können sich die Spieler durch die Stadt rätseln und so neue Locations kennenlernen und knifflige Rätsel lösen. Zu lösende Aufgaben sind |
+    Ich habe dieses Unternehmen gegründet und das Ziel war es eine Gruppe von Menschen durch einen spielerischen Ansatz durch die Stadt zu führen um neue Spots und seinen gegenüber kennenzulernen. Mithilfe einer iOS App können sich die Spieler durch die Stadt rätseln und so neue Locations kennenlernen und knifflige Rätsel lösen. Zu lösende Aufgaben sind 
+ Entwicklung einer App mittels Cordova & Framework7 für iOS 
+ Geolokalisierung & Geofences in OpenStreetMaps 
+ Lizenzrechtmanagement 
+ Webseitenerstellung & SEO Mangagement (www.schnitzeljaeger.de) 
+ Datenauswertung von Google Analytics, iTunes Connect & Google Adwords 
+ Erstellung von Datenbanken (MySQL) & der zugehörigen REST API in PHP
 
+- company: Accenture Deutschland Gmbh
+  link: accenture.com
+  job_title: Senior Analyst
+  dates: November 2017 - Februar 2018 
+  quote: >
+   Digital First
+  description: | # this will include new lines to allow paragraphs
+    
+    Entwicklung von nativen iOS Applikationen mittels Swift 
+    Arbeiten mit Xcode 9 
+    Einarbeitung in MongoDB 
+    Training in Hadoop
+
+- company: Airbus Deutschland Gmbh
+  link: airbus.com
+  job_title: Werkstudent
+  dates: 2012 - 2017 
+  quote: >
+   Fly high
+  description: | # this will include new lines to allow paragraphs
+    Zur Finanzierung und Weiterbildung habe ich während meines Studiums bei Airbus in Hamburg gearbeitet. Diese Zeit hat nicht nur berufliche Erfahrung, sondern ebenfalls wertvolle Lebenserfahrung geschenkt. Neben den eigenständigen Projekten die mir anvertraut worden sind, durfte ich ebenfalls die Herausforderungen und Lösungen eines Großkonzerns kennenlernen.
+
+Entwicklung und Analyse von unterschiedlichsten Daten zur Mehrwertgenerierung und Entscheidungsfindung 
+Analyse & Optimierung von Arbeitsprozessen mittels unterschiedlichster Methoden 
+Unterstützung von Aufgaben des Projektmanagements 
+Integration und Implementierung eines Sharepoint Servers 
+Optimierung, Strukturierung und Organisation eines Enterprise Wissensmanagement-
+systems
