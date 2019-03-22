@@ -1,12 +1,10 @@
 - name: Zeitreihenanalyse
-  link: Privates Repository
   quote: >
     Forecast Erstellung durch eine Zeitreihenanalyse mit Xgboost durch Grid Search und cleansing
   description: | # this will include new lines to allow paragraphs
     Ein sehr interessantes Projekt mit dem Ziel zur Automatisierung und Verbesserung von Prognosen. Ein herkömmlichs Modell mit Facebooks Prophet war nicht sonderlich vielversprechend und führte zu sehr hohen MSE Werten. Eine Lösung durch die Entwicklung eine XGboost Modells, dass sehr schnell und zuverlässig den MSE als Kennzahl senkte erwies sich als vielversprechend. Hierbei wurde stark auf die Automatisierung aus einem Datawarehouse geachtet. Daten mussten bereinigt und standardisiert werden, sowie die Identifikation von Outliern und deren Auslöser. Weitere Analysen haben ergeben, dass durch das Modell 90 % der Varianz erklärt werden konnte.
 
 - name: Dogbreed Classifier
-  link: cnn_dog_breed_classification
   github: maltequast/cnn_dog_breed_classification
   quote: >
     Klassifikation von über 130 Hunderassen in Pytorch mit CNN und Transfer Learning 
