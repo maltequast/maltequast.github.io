@@ -3,7 +3,14 @@
   job_title: Data Analytics Consultant
   dates: seit März 2018
   description: | # this will include new lines to allow paragraphs
-    Jeder von uns besitzt wertvolle Daten. Diese in eine Struktur zu bringen und zu wertschaffende und zukunftsweisende Analysen zu betreiben treibt mich an. 
+    Die Datadrivers GmbH ist eine junge Unternehmensberatung aus Hamburg. Durch die Erstellung von datengetriebener IT-Infrastruktur und digitale Transformation sorgt die Datadrivers GmbH für ein nachhaltiges Wachstum. Meine Aufgabe im Unternehmen ist die Konsolidierung, Aggregation und Analyse von Daten. Dies kann über klassische ETL Pipelines, Datawarehouses und BI Tools erfolgen oder aber im Stile hochkomplexen Analysemodellen zur Erhöhung von Prognosegenauigkeiten oder zur Lösung von Klassifikationsproblemen. Bei den Datadrivers beschäftige ich mich vorrangig mit der Beschaffungs und Bereinigung von Daten, sowie der Modellerstellung durch Machine Learning oder Deep Learning Modellen. Meine Antreiber sind die immer neuen Herausforderungen und Technologien zu bewältigen und neue wertschaffende Lösungen generieren. In den unterschiedlichen Projekten arbeitete ich bereits mit 
+    * AWS Redshift, S3, Glue, Sagemaker, EC2
+    * Talend, Spark, Cloudera
+    * Python, PySpark, R
+    * Pandas, Numpy, Scikit, spaCy, nltk, xgboost und viele weitere 
+    * Keras, Tensorflow, Pytorch, pillow, openCV
+    * PostgreSQL, MySQL, Redshift
+    * Ubuntu, Redhat, Windows
 
 - company: Schnitzeljäger GbR
   link: schnitzeljaeger.de
@@ -23,11 +30,11 @@
   job_title: Senior Analyst
   dates: November 2017 - Februar 2018 
   description: | # this will include new lines to allow paragraphs
-    
-    * Entwicklung von nativen iOS Applikationen mittels Swift 
-    * Arbeiten mit Xcode 9 
-    * Einarbeitung in MongoDB 
-    * Training in Hadoop
+    Im Bereich der Technologieberatung und Digitalisierung habe ich dort unterschiedliche Systemlösungen analysiert, entwickelt und implementiert. In diesem Umfeld habe ich gelernt auf häufig wechselnde Anforderungen zu agieren. Weiterhin konnte ich hier meine Flexibilität und Belastbarkeit unter Beweis stellen und Lösungen für den Kunden in die Wege leiten. Der inhaltliche Schwerpunkt bezog sich vor allem auf 
+    * Entwicklung von nativen iOS Applikationen
+    * Erstellung und Analyse von Data Lakes in NoSQL
+    * Data Preprocessing und Erstellen und Testen unterschiedlichster Machine Learning Modelle 
+    * Erste Erfahrungen im Big Data Bereich 
 
 - company: Airbus Deutschland Gmbh
   link: airbus.com
