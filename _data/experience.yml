@@ -15,16 +15,13 @@
    Connect the digital and real world
   description: | # this will include new lines to allow paragraphs
     Ich habe dieses Unternehmen gegründet und das Ziel war es eine Gruppe von Menschen durch einen spielerischen Ansatz durch die Stadt zu führen um neue Spots und seinen gegenüber kennenzulernen. Mithilfe einer iOS App können sich die Spieler durch die Stadt rätseln und so neue Locations kennenlernen und knifflige Rätsel lösen. Zu lösende Aufgaben sind 
-  enum:
-            - Monday
+            "- Monday
             - Tuesday
             - Wednesday 
             - Thursday
             - Friday
             - Saturday
-            - Sunday
+            - Sunday"
 
-  jobs:
-    - title: Job title 1
-    - title: Job title 2
+
 
