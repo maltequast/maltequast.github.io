@@ -4,16 +4,16 @@
   description: | # this will include new lines to allow paragraphs
     Ein sehr interessantes Projekt mit dem Ziel zur Automatisierung und Verbesserung von Prognosen. Ein herkömmlichs Modell mit Facebooks Prophet war nicht sonderlich vielversprechend und führte zu sehr hohen MSE Werten. Eine Lösung durch die Entwicklung eines XGboost Modells, dass sehr schnell und zuverlässig den MSE als Kennzahl senkte erwies sich als vielversprechend. Hierbei wurde stark auf die Automatisierung aus einem Datawarehouse geachtet. Daten mussten bereinigt und standardisiert werden, sowie die Identifikation von Outliern. Weitere Analysen haben ergeben, dass durch das Modell 90 % der Varianz erklärt werden konnte.
 
-- name: Live - Sentimentanalyse durch LSTM Network
+- name: Live - Sentimentanalyse 
   quote: >
-    Live Rest Schnittstelle für Twitter Hashtag Sentimente
+    Live Rest Schnittstelle für Twitter Hashtag Sentimente durch ein LSTM Network
   description: |
     In diesem Projekt wurde ein neuronales Netzwerk mit mehreren LSTM trainiert. Dieses diente dazu zu erkennen ob ein Hashtags positiv oder negativ bewertet werden kann. Weitere Technologien die zum Einsatz kamen sind Docker, Flask als Schnittstelle und Pytorch als Deep Learning Framework.
 
 
-- name: Face Generation mit DCGANs
+- name: Face Generation 
   quote: >
-    Zufällige Erstellung von Gesichtern mittels Deep convolutional generative adversarial networks
+    Zufällige Erstellung von Gesichtern mittels Deep convolutional generative adversarial networks (DCGAN)
   description: |
     Ziel dieses Projektes war es neue Gesichter auf Grundlage eines bestehenden Datensatzes zu erstellen. Hierbei wurde Pytorch als Framework genutzt und je ein Discriminator und Generator trainiert die durch langes Training in der Lage waren Bilder zu erstellen und zu schlechte Bilder als Fake zu identifizieren. Das Training fand auf einer GPU Instanz statt und die Tiefe des Netzwerkes waren entscheidend für die Dauer und Laufzeit der Modelle.  
 
