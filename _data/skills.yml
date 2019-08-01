@@ -1,3 +1,48 @@
-- name: Programmiersprache
-  description: | # this will include new lines to allow paragraphs
-    * AWS Redshift, S3, Glue, Sagemaker, EC2
+- name: Programmiersprachen
+  description: |
+    Python und R habe ich besonders viel in Projekten bzw. zu Universitätszwecken genutzt. Desweiteren kam mit der Zeit Java ins Spiel. Wesentliche Gründe hierfür sind Talend und andere Big Data Technologien.
+    * Python
+    * R
+    * Grundkenntnisse in Java
+
+- name: Big Data 
+  description: | 
+    Die jeweiligen Technologien wurden zu Kundenzwecken erlernt und sind in Produktivumgebungen implementiert. Hierbei ist zu erwähnen, dass spezielll die Hadoop Cluster ausschließlich zum Analyseeinsatz genutzt worden sind. Hierbei sind speziell HDFS (Datenspeicherung), Hive und Impala zum Einsatz gekommen. Spark hingegen wurde ebenfalls auch ohne ein Hadoop Cluster genutzt wie beispielsweise in AWS Glue. 
+    * Spark
+    * Cloudera
+    * Hadoop
+    * PySpark
+    * Apache Airflow
+    * Talend DI
+    * Talend Administration Center
+
+- name: Datenbanken
+  description: |
+    Die Speicherung der Daten ist immer notwendig und die Verarbeitung der jeweiligen Tabellen / Collections in ETL / ELT Prozessen wichtig. Diese können durch unterschiedlichste Arten vollzogen werden. Hierbei war es immer wichtig Datenverarbeitung in SQL / NoSql zu realisieren. Die Modellierung sowie die zugrundeliegende Archtiektur wie Data Vault oder Star Schema zu berücksichtigen.
+    * MySQL / MariaDB
+    * AWS Redshift
+    * PostgreSQL
+    * MongoDB
+
+- name: Reporting
+  description: | 
+    Bei den jeweiligen Unternehmen war es immer Ziel Daten zielgerichtet zu analysieren und Fragen beantworten zu können. Mit den beiden Leadern auf dem Feld war es mir stets möglich Fragestellungen zu beantworten und Insights zu gewinnen.
+    * Tableau
+    * Microsoft Power BI
+
+
+- name: Cloud
+  description: | 
+    Cloud Solutions sind die Zukunft und für kosteneffizientes Arbeiten unerlässlich. Der Einsatz von spaltenbasierten hoch performanten Datenbanken wie Redshift oder schnell trainierbar Machine Learning Modelle und hoch skalierbare Server wie bei Sagemaker ermöglichen die zielgerichtete Liveschaltung für Online Services.
+    * AWS EC2
+    * Sagemaker
+    * Redshift
+    * Glue (Spark)
+    * Lambda
+    * API Gateway
+
+- name: Microservices
+  description: |
+    Für schnelleres Deployment und Teamarbeit hat es sich in mehreren Fällen angeboten auf Docker bzw. den dauerhaften Service Docker-Compose zu setzen. Speziell zum schnelleren Prototyping können Datenbanken schnell und effizient hochgezogen werden. Ebenso konnten Crawler schnell produktiv gesetzt werden durch Docker.
+    * Docker
+    * Docker-Compose

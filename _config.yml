@@ -20,7 +20,7 @@ linkedin_username: malte-quast-0452a7121
 # googleplus_username: +jekyll
 
 # About Section
-# about_title: About Me
+about_title: Über mich
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, mein Name ist Malte. Ich arbeite aktuell bei der Datadrivers GmbH als Data Analytics Consultant und berate Deutschlandweit Unternehmen im Bereich Predictive Analytics und Datenverarbeitung in Datawarehouses. Durch viele unterschiedliche Kunden kenne ich mich in vielen Bereichen wie Cloud oder On-Premises Lösungen aus und berate ebenfalls im Bereich BI Lösungen wie beispielsweise Tableau. Automatisierung und Transparenz liegen mir bei den Projekten besonders am Herzen um die Kundenwünsche möglichst genau zu erfüllen und nachhaltigen Wachstum zu garantieren. Bei Fragen zu Projekten meldet euch gerne bei mir.   
