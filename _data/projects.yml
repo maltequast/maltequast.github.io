@@ -1,0 +1,39 @@
+- name: Zeitreihenanalyse
+  quote: >
+    Forecast Erstellung durch eine Zeitreihenanalyse mit Xgboost durch Grid Search und Bayesian model-based optimization
+  description: | # this will include new lines to allow paragraphs
+    Ein sehr interessantes Projekt mit dem Ziel zur Automatisierung und Verbesserung von Prognosen. Ein herkömmlichs Modell mit Facebooks Prophet war nicht sonderlich vielversprechend und führte zu sehr hohen MSE Werten. Eine Lösung durch die Entwicklung eines XGboost Modells, dass sehr schnell und zuverlässig den MSE als Kennzahl senkte erwies sich als vielversprechend. Hierbei wurde stark auf die Automatisierung aus einem Datawarehouse geachtet. Daten mussten bereinigt und standardisiert werden, sowie die Identifikation von Outliern. Weitere Analysen haben ergeben, dass durch das Modell 90 % der Varianz erklärt werden konnte.
+
+- name: Live - Sentimentanalyse 
+  quote: >
+    Live Rest Schnittstelle für Twitter Hashtag Sentimente durch ein LSTM Network
+  description: |
+    In diesem Projekt wurde ein neuronales Netzwerk mit mehreren LSTM trainiert. Dieses diente dazu zu erkennen ob ein Hashtags positiv oder negativ bewertet werden kann. Weitere Technologien die zum Einsatz kamen sind Docker, Flask als Schnittstelle und Pytorch als Deep Learning Framework.
+
+
+- name: Face Generation 
+  quote: >
+    Zufällige Erstellung von Gesichtern mittels Deep convolutional generative adversarial networks (DCGAN)
+  description: |
+    Ziel dieses Projektes war es neue Gesichter auf Grundlage eines bestehenden Datensatzes zu erstellen. Hierbei wurde Pytorch als Framework genutzt und je ein Discriminator und Generator trainiert die durch langes Training in der Lage waren Bilder zu erstellen und zu schlechte Bilder als Fake zu identifizieren. Das Training fand auf einer GPU Instanz statt und die Tiefe des Netzwerkes waren entscheidend für die Dauer und Laufzeit der Modelle.  
+
+- name: Dogbreed Classifier
+  github: maltequast/cnn_dog_breed_classification
+  quote: >
+    Klassifikation von über 130 Hunderassen in Pytorch mit CNN und Transfer Learning 
+  description: | # this will include new lines to allow paragraphs
+   Innerhalb dieses Projektes habe ich mehrere Modelle zur Analyse und Identfikation von Hunderassen erstellt. Dazu kamen Technologien wie CUDA & Pytorch zum Einsatz. Die dahinterstehenden Modelle Resnet oder VGG16 wurden als Transfer Learning Referenz genutzt. Weiterhin konnte durch einen minimalen Datensatz eine Genauigkeitsverbesserung durch Bildmanipulation und Noise Reduction herbeigeführt werden. Parameteroptimierung und Datennormalisierung waren eine der grundlegenden Aufgaben.
+
+- name: Crawler Creation
+  quote: >
+    Python Crawler Erstellung mit Requests und BeautifulSoup
+  description: |
+    Erstellung von diversen Crawlern und untersuchen unterschiedlichster Webseiten durch die obigen Python Bibliotheken. Weitere Technologien die zum Einsatz kamen waren Docker, Docker-Compose für die jeweilige Lagerung und Scheduling durch Airflow. Die Daten wurden typischerweise in Datenbanken gesichert.
+
+
+- name: Datawarehousing Projekte
+  quote: >
+    Erstellung von ETL Jobs und Datawarehouses durch unterschiedlichste Architekturen
+  description: |
+    Weitere realisierte Projekte waren Datawarehouses mit Data-Vault und Star Schema Architektur bzw. Head- und Version Modellierung. Die Automatisierung der Datawarehouses wurde durch Talend (DI und TAC) sowie Apache Airflow gebaut,terminiert und deployed. Die Produktionsumgebung hat zum Teil in der AWS Cloud wie auf Redshift, Glue (Spark) und ec2 Instanzen stattgefunden. Die jeweiligen Analysen der unterschiedlichsten Daten fand durch Tableau oder Microsoft Power BI statt und wurde einer Vielzahl an Stakeholdern zur Verfügung gestellt.
+

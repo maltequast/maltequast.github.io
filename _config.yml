@@ -27,14 +27,17 @@ about_content: | # this will include new lines to allow paragraphs
 
   Mein Fachgebiet ist: <mark>Machine-</mark> und <mark>Deep-Learning</mark>
 
+#Skills Section
+skills_title: Skills
+
 # Projects Section
-# projects_title: Projects
+projects_title: Projektauswahl
 
 # Experience Section
-# experience_title: Experience
+experience_title: Erfahrung
 
 # Education Section
-# educaton_title: Education
+educaton_title: Bildung
 
 # More Section
 more_title: Mehr über mich
