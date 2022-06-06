@@ -82,7 +82,7 @@ sidebar-avatar: https://avatars.githubusercontent.com/u/40795540?s=400&u=61b6b93
 
 
 # Featured Tags
-featured-tags: fakse                     # whether or not using Feature-Tags
+featured-tags: false                     # whether or not using Feature-Tags
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
 
 
