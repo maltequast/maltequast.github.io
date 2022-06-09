@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maltes ML Blog</title>
+    <description>Maltes Blog | Machine Learning, Automation, MLOps, Python | Datadrivers</description>
+    <link>http://0.0.0.0:4000/</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 09 Jun 2022 09:57:24 +0000</pubDate>
+    <lastBuildDate>Thu, 09 Jun 2022 09:57:24 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Don't Let Python Stop You(2/2)</title>
+        <description>&lt;h2 id=&quot;poetry-for-dependency-management&quot;&gt;Poetry for dependency management&lt;/h2&gt;
+&lt;p&gt;As we’ve seen in the first article, it is crucial to switch to different python version and pyenv helped us with this. If you haven’t read this article, I highly recommend it.&lt;/p&gt;
+
+&lt;p&gt;Dependency management is a critical part of software development. It can be difficult to keep track of all the dependencies your project relies on, and it’s easy to introduce new ones unintentionally. A well-defined dependency management strategy can help you avoid these problems.&lt;/p&gt;
+
+&lt;p&gt;There are a number of different dependency management tools available, each with its own strengths and weaknesses. The most popular is definetely pip. So why using another depended resolver?&lt;/p&gt;
+
+&lt;p&gt;When choosing a dependency management tool, it’s important to consider your team’s needs and preferences. Some teams prefer a tool that is widely used and supported, while others might prefer a tool that is more tailored to their specific needs.&lt;/p&gt;
+
+&lt;p&gt;What I do like about poetry is, that the update and installation are encapsulated via a lock file and a toml file. You can add a library to your toml file and poetry tries to resolve the dependencies with the lock file. If everything works just fine you will not get any errors. But if you receive one, you can focus on that specific library with this version and how to add or update it. This is one killer feature for me, why I chose poetry.&lt;/p&gt;
+
+&lt;p&gt;Additionally, I appreciate the easy process of building my new package.
+And now we can see it in action.&lt;/p&gt;
+
+&lt;h2 id=&quot;poetry-in-action&quot;&gt;Poetry in action&lt;/h2&gt;
+
+&lt;p&gt;First of all, I like to have my venv within my project.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry config virtualenvs.in-project true
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we can start with how I create my project&lt;/p&gt;
+
+&lt;p&gt;First of all I create a new project folder with&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry new foo
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is gonna be the directory tree of our new project.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;.
+├── README.rst
+├── foo
+│ └── __init__.py
+├── pyproject.toml
+└── tests
+  ├── __init__.py
+  └── test_foo.py
+
+2 directories, 5 files
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For now you don’t see any lock file and this is because we did not add any dependency.&lt;/p&gt;
+
+&lt;p&gt;Let’s just add one dependency which shouldn’t be missed in any of my projects, numpy.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry add numpy 
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;Using version ^1.22.4 for numpy
+
+Updating dependencies
+Resolving dependencies... (1.0s)
+
+Writing lock file
+
+Package operations: 9 installs, 0 updates, 0 removals
+
+ • Installing pyparsing (3.0.9)
+ • Installing attrs (21.4.0)
+ • Installing more-itertools (8.13.0)
+ • Installing packaging (21.3)
+ • Installing pluggy (0.13.1)
+ • Installing py (1.11.0)
+ • Installing wcwidth (0.2.5)
+ • Installing numpy (1.22.4)
+ • Installing pytest (5.4.3)
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Et Voila, we have a poetry.lock file. Btw, with this command we just added numpy and all its dependencies (i.e. pytest).
+We can also check this out in our lock file. In our pyproject.toml, we can only see numpy and it’s version. There are also many more possibilities with version constraints, but for now it should be fine.&lt;/p&gt;
+
+&lt;p&gt;Let’s have a look at the pyproject.toml:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[tool.poetry]
+name = &quot;foo&quot;
+version = &quot;0.1.0&quot;
+description = &quot;This is just a poetry demonstration&quot;
+authors = [&quot;Malte&quot;]
+
+[tool.poetry.dependencies]
+python = &quot;^3.8&quot;
+numpy = &quot;^1.22.4&quot;
+
+[tool.poetry.dev-dependencies]
+pytest = &quot;^5.2&quot;
+
+[build-system]
+requires = [&quot;poetry-core&amp;gt;=1.0.0&quot;]
+build-backend = &quot;poetry.core.masonry.api&quot;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can basically differentiate the toml file in 4 blocks.
+The tool.poetry is for metadata of the package.
+tool.poetry.dependencies is for dependencies in a production system
+tool.poetry.dev-dependencies is for dev-dependencies
+build-system is used for the build system ( I know, I should not explain it with the same words ;-) )&lt;/p&gt;
+
+&lt;p&gt;If you want to add a dev-dependency you can just do it like&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry add -D pytest
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;and you are good to go.&lt;/p&gt;
+
+&lt;p&gt;Furthermore you can add another block to customize the dependency installation to your needs.&lt;/p&gt;
+
+&lt;p&gt;As an example you want a complete installation of dask. In this case you would achieve this with pip&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;pip install dask[complete]
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In our case, we just want to add dask with poetry and afterwards make it optional.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry add &quot;dask[complete]&quot;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;With the result&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dask = {extras = [&quot;complete&quot;], version = &quot;^2022.5.2&quot;}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But now, we don’t want this package all the time to be installed, only in some cases.
+So we just add  another block to our pyproject.toml and change the dask entry:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;dask = { extras = [&quot;complete&quot;], version = &quot;^2022.5.0&quot;, optional = true }
+
+[tool.poetry.extras]
+ml = [&quot;dask&quot;]
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now poetry listens to the shell parameter –extras ml. If you are now going to install the package with the command&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry install --extras ml --no-dev
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;you install all packages that are not optional (by default), also all packages bundled in the parameter “ml” and you don’t install dev-dependencies. Fancy, isn’t it?&lt;/p&gt;
+
+&lt;p&gt;Now you can just checkout your python venv with&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry shell
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;and start coding in your src folder (here it is foo).&lt;/p&gt;
+
+&lt;p&gt;Whenever you feel like updating a dependency, you can just do&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry update # update all packages
+poetry update numpy # update single package
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After all the coding fun, you just want to build and publish it.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry build #build wheel and tar.gz
+poetry build --format wheel
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;With just one command you create your wheel and tar.gz file&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;.
+├── README.rst
+├── dist
+│ ├── foo-0.1.0-py3-none-any.whl
+│ └── foo-0.1.0.tar.gz
+├── foo
+│ └── __init__.py
+├── poetry.lock
+├── pyproject.toml
+└── tests
+  ├── __init__.py
+  └── test_foo.py
+
+3 directories, 8 files
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you might realize that you just build your version with the incorrect version. Don’t worry, you don’t have to open pyproject.toml by hand, poetry can help you out!&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry version prerelease # 0.1.1-alpha.0
+poetry version patch # 0.1.1
+poetry version minor # 0.2.2
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you are ready to publish it to your private repository.&lt;/p&gt;
+
+&lt;p&gt;Now you can just add your repository path and credentials:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry config repositories.foo https://foo.bar/simple/
+poetry config http-basic.foo username password
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you can just publish it&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry publish
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After you have published everything, there is just one more thing to do.&lt;/p&gt;
+
+&lt;p&gt;Set up your pyproject.toml, so that you use your private repository as well. You remember, when we first installed numpy and dask. By default, poetry looks for package at pypi. But as you may have learned, we can easily change that.&lt;/p&gt;
+
+&lt;p&gt;Add this to your pyproject.toml&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[[tool.poetry.source]]
+name = &quot;foo&quot;
+url = &quot;https://foo.bar/simple/&quot;
+default = true
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;upgrade-older-projects-to-poetry&quot;&gt;Upgrade older projects to poetry&lt;/h2&gt;
+
+&lt;p&gt;There are two more things, I’d like to add and had to do it quite often. You might have older projects, which you want to upgrade to poetry. You can do that and it is not that complicated. (spoiler: We need some bash magic for convenience).&lt;/p&gt;
+
+&lt;p&gt;First of all:
+Go to your project root folder and create a pyproject.toml.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry init -n
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I like to create my toml file in noninteractive mode. That’s why I added this parameter.&lt;/p&gt;
+
+&lt;p&gt;Now you just need your requirements.txt and your pyproject.toml to be in the project folder and run this command.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;RUN awk '{print $1}' requirements.txt | xargs -n1 poetry add
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;It just adds every library line by line and ignoring (!) the version. 
+If pip did a good job, we should have a working virtual environment, managed by poetry.&lt;/p&gt;
+
+&lt;h3 id=&quot;export-to-requirementstxt&quot;&gt;Export to requirements.txt&lt;/h3&gt;
+
+&lt;p&gt;You can’t avoid to create a requirements.txt (at least in the near future). Poetry has of course a converter for this.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;poetry export -o requirements.txt --extras ml --no-dev --without-hashes
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I just added all parameters that came to my mind. You want of course the ml extras from above, and you also want to ignore the dev- dependencies. The last parameter “without-hashes” is just to make it more readable and ignore the hashes that are created from the poetry.lock file.&lt;/p&gt;
+
+&lt;p&gt;I really hope it helped you.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Pyenv &amp;amp; Poetry are great tools and helped me a lot during my projects.&lt;/p&gt;
+
+&lt;p&gt;Many thanks to&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/52522565/git-is-not-working-after-macos-update-xcrun-error-invalid-active-developer-pa&quot;&gt;vinzee, 2020, Stackoverflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://betterprogramming.pub/5-reasons-why-poetry-beats-pip-python-setup-6f6bd3488a04&quot;&gt;Agustin Castro, 2022, betterprogramming.pub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://python-poetry.org/docs/&quot;&gt;poetry documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/2022/06/07/python-right-venv_2/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2022/06/07/python-right-venv_2/</guid>
+        
+        <category>Pyenv</category>
+        
+        <category>Poetry</category>
+        
+        <category>Python</category>
+        
+        <category>Venv</category>
+        
+        <category>Dependency-Management</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Don't Let Python Stop You (1/2)</title>
+        <description>&lt;h2 id=&quot;the-right-tool-for-the-right-job&quot;&gt;The right tool for the right job&lt;/h2&gt;
+
+&lt;p&gt;Python is one of the most popular programming languages in the world. It has a large user base, and is often used in web
+development, scientific computing, and data analysis. However, Python does not come pre-installed on all systems, and it
+can be difficult to set up the right environment for using it. This article will describe how to set up a decent Python
+environment on MacOS.&lt;/p&gt;
+
+&lt;h2 id=&quot;setup-python-pyenv-environment&quot;&gt;Setup Python Pyenv Environment&lt;/h2&gt;
+
+&lt;p&gt;In this article, we are going to learn how to set up a Python Pyenv environment. Pyenv is a tool that allows you to
+manage multiple Python versions on your system. It is an alternative to virtualenv and pipenv.&lt;/p&gt;
+
+&lt;p&gt;Pyenv requires a few components in order to work properly.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;brew install pyenv
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In my case I needed to install Xcode for the CommandLineTools&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;xcode-select --install
+sudo xcode-select --switch /Library/Developer/CommandLineTools # this is optional if you encounter further issues
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can insert this into your “~/.zprofile”. If you work with bash, you just insert it into your “~/.bash_profile”. If
+it does not exist, you can just create one. It should work out of the box. Here you can see my .zprofile:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then
+	eval &quot;$(pyenv init -)&quot;
+fi
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you can list all possible python version that can be installed&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;pyenv install -l
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Choose your version and install it. In my case I chose Python version 3.10.4.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;pyenv install 3.10.4
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After you have downloaded it you can test the comfort of Pyenv. You can set a global and a local python version.&lt;/p&gt;
+
+&lt;p&gt;Check out your global version first and ensure that it is not the same as we just downloaded. Now you can change your
+directory to a test folder and activate your local python version with&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;pyenv local 3.10.4
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Start your python console and check your version. Now you can see your last downloaded python version in your console.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;Python 3.10.4 (main, Jun  7 2022, 11:24:12) [Clang 13.0.0 (clang-1300.0.27.3)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With this validated cross check, you can now set your global python version easily.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;pyenv global &amp;lt;version&amp;gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With this prerequisite we are now ready to change our python versions on the fly. 
+In my next blog post you can read more about the installation of a
+dependency resolver and virtual environment manager called poetry.&lt;/p&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;resources&lt;/h3&gt;
+
+&lt;p&gt;Many thanks to&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/52522565/git-is-not-working-after-macos-update-xcrun-error-invalid-active-developer-pa&quot;&gt;vinzee, 2020, Stackoverflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://betterprogramming.pub/5-reasons-why-poetry-beats-pip-python-setup-6f6bd3488a04&quot;&gt;Agustin Castro, 2022, betterprogramming.pub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://python-poetry.org/docs/&quot;&gt;poetry documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/2022/06/07/python-right-venv_1/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2022/06/07/python-right-venv_1/</guid>
+        
+        <category>Pyenv</category>
+        
+        <category>Poetry</category>
+        
+        <category>Python</category>
+        
+        <category>Venv</category>
+        
+        <category>Dependency-Management</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Why Minikube is a great alternative to Docker Desktop</title>
+        <description>&lt;h2 id=&quot;introduction-what-is-minikube&quot;&gt;Introduction: What is Minikube?&lt;/h2&gt;
+
+&lt;p&gt;Minikube is a single node Kubernetes cluster that runs in a virtual machine on your laptop. It is great for development
+and testing because it is easy to get started and you don’t need to install any external software. You can use Minikube
+to deploy applications, experiment with Kubernetes features, and learn how to use Kubernetes, which is an excellent
+option for having a simple Kubernetes cluster up and running on localhost.&lt;/p&gt;
+
+&lt;p&gt;Advantages of Minikube:
+Minikube is a great alternative to Docker Desktop. It is an open source project, driven by the Kubernetes community.
+Especially for commercial Mac users, it is getting more important. Since Docker has changed the pricing model for Docker
+Desktop. Latest news &lt;a href=&quot;https://www.docker.com/pricing/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Furthermore you can install Minikube on Mac, Windows, and Linux.&lt;/p&gt;
+
+&lt;p&gt;In this guide, we will install Minikube over brew on macOS and focus on the most important commands to replace Docker
+Desktop.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Installation commands&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;First of all install Minikube via brew:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;brew install minikube
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It sounds counterintuitive, but install docker as well:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;brew install docker
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This only installs the Docker CLI. This is necessary to interact with the Docker Engine on your Minikube cluster.&lt;/p&gt;
+
+&lt;p&gt;Additionaly you need to install hyperkit too:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;brew install hyperkit
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Excourse on Hyperkit
+“HyperKit is a toolkit for embedding hypervisor capabilities in your application […], which is optimized for
+lightweight virtual machines and container deployment. […]HyperKit currently only supports macOS using the
+Hypervisor.framework. It is a core component of Docker Desktop for Mac.”&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;source: https://github.com/moby/hyperkit&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It seems that we already found a good and lightweight solution for our new Docker environment.&lt;/p&gt;
+
+&lt;p&gt;Before we start our Minikube cluster, we want to connect our Docker CLI with the Docker Engine.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;eval $(minikube docker-env)
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Perhaps you want to connect it permanently, you should add this to your .bashrc or your .bash_profile.&lt;/p&gt;
+
+&lt;p&gt;Finally you can start your Minikube cluster.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube start --driver=hyperkit --container-runtime=docker --disk-size=50g -p minikube
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;helpful-commands&quot;&gt;Helpful commands&lt;/h3&gt;
+
+&lt;p&gt;We’ve seen how to start a minikube cluster. We have defined and installed the first parameters (driver &amp;amp;
+container-runtime). But we can also customize more about the hardware as well. By default, it starts with 2 CPUs and
+2GB.
+We can define the&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;memory&lt;/li&gt;
+  &lt;li&gt;disk-size&lt;/li&gt;
+  &lt;li&gt;cpus&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But the last parameter is the abbreviation for profile. This is the name for the cluster. We can have multiple
+profiles with different specifications and clusters.
+The default profile is named minikube and you can check all profiles with&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube profile list
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After a while, you want to check the used disk space on the virtual machine. Therefore you need to ssh in your minikube
+cluster. You can easily do that with&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube ssh
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;good-to-know&quot;&gt;Good to know&lt;/h3&gt;
+
+&lt;p&gt;On Docker Desktop I am used to check my apps on the localhost. In this case you need to check out your minikube ip. As
+you can imagine, this is quite simple as well&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube ip
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Often times I get an error, because I forgot to mount a volume. This is a slightly more complicated, but don’t worry, it
+is not that hard.
+You just need to open another terminal and create a mount source and target and let it open, until you are finished with
+your Container work.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube mount /Users/&amp;lt;your-path&amp;gt;/projects/maltequast.github.io:/host
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this example I wanted to serve my GitHub blog for testing purposes on my local machine. For this reason I needed to
+mount this directory. Now I was able to find it in my minikube cluster in the host directory and was able to serve and
+test it.&lt;/p&gt;
+
+&lt;p&gt;One more handy feature is the addons list.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube addons list
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;|-----------------------------|----------|--------------|--------------------------------|
+|         ADDON NAME          | PROFILE  |    STATUS    |           MAINTAINER           |
+|-----------------------------|----------|--------------|--------------------------------|
+| ambassador                  | minikube | disabled     | third-party (ambassador)       |
+| auto-pause                  | minikube | disabled     | google                         |
+| csi-hostpath-driver         | minikube | disabled     | kubernetes                     |
+| dashboard                   | minikube | disabled     | kubernetes                     |
+| default-storageclass        | minikube | enabled ✅   | kubernetes                     |
+| efk                         | minikube | disabled     | third-party (elastic)          |
+| freshpod                    | minikube | disabled     | google                         |
+| gcp-auth                    | minikube | disabled     | google                         |
+| gvisor                      | minikube | disabled     | google                         |
+| helm-tiller                 | minikube | disabled     | third-party (helm)             |
+| ingress                     | minikube | disabled     | unknown (third-party)          |
+| ingress-dns                 | minikube | disabled     | google                         |
+| istio                       | minikube | disabled     | third-party (istio)            |
+| istio-provisioner           | minikube | disabled     | third-party (istio)            |
+| kong                        | minikube | disabled     | third-party (Kong HQ)          |
+| kubevirt                    | minikube | disabled     | third-party (kubevirt)         |
+| logviewer                   | minikube | disabled     | unknown (third-party)          |
+| metallb                     | minikube | disabled     | third-party (metallb)          |
+| metrics-server              | minikube | disabled     | kubernetes                     |
+| nvidia-driver-installer     | minikube | disabled     | google                         |
+| nvidia-gpu-device-plugin    | minikube | disabled     | third-party (nvidia)           |
+| olm                         | minikube | disabled     | third-party (operator          |
+|                             |          |              | framework)                     |
+| pod-security-policy         | minikube | disabled     | unknown (third-party)          |
+| portainer                   | minikube | disabled     | portainer.io                   |
+| registry                    | minikube | enabled ✅   | google                         |
+| registry-aliases            | minikube | disabled     | unknown (third-party)          |
+| registry-creds              | minikube | disabled     | third-party (upmc enterprises) |
+| storage-provisioner         | minikube | enabled ✅   | google                         |
+| storage-provisioner-gluster | minikube | disabled     | unknown (third-party)          |
+| volumesnapshots             | minikube | disabled     | kubernetes                     |
+|-----------------------------|----------|--------------|--------------------------------|
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Depending on the use case, it might be extremely useful to enable some addons.
+Especially if you want to get started with MLOps, I recommend to enable the registry addon. Now you can push your image
+to a local registry and simulate your workflow locally.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;minikube addons enable registry
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When your are done with your work and you want to free some disk space, you can delete the minikube cluster or just stop it
+and reuse it.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;#stop the cluster for reuse
+minikube stop
+
+# delete the cluster
+minikube delete
+
+# delete all clusters
+minikube delete --all
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;I use this setup since 4 weeks and I am positively surprised. It doesn’t slow down my Macbook as much as Docker Desktop.
+The installation is easy and the learning curve is quite steep. Additionally I was more interested to test kubectl and
+helm as well, but this might be worth another blog post.
+Nonetheless, I really appreciate the idea of multiple profiles. Not all the time I want to use the same containers and
+hardware specification, especially the container list can feel a little overwhelming when running a Kubernetes cluster,
+so another profile can make sense.
+Bottomline there are many ways to run a Container and Minikube is one of them, but if you are using it for the first
+time, then you should probably look at the great Minikube documentation.&lt;/p&gt;
+
+&lt;p&gt;Many thanks for reading this blog post and for sure, there are many more useful addons and tips for Minikube. Let me
+know if you have any questions or suggestions.&lt;/p&gt;
+
+&lt;p&gt;This blog post is inspired by:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos&quot;&gt;Ahmedabad, 2021, blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://minikube.sigs.k8s.io/docs/start/&quot;&gt;Minikube Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/moby/hyperkit&quot;&gt;Hyperkit Github readme&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2022 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/2022/06/06/minikube-docker-desktop/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2022/06/06/minikube-docker-desktop/</guid>
+        
+        <category>Minikube</category>
+        
+        <category>Docker</category>
+        
+        <category>Docker-Desktop</category>
+        
+        <category>Kubernetes</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Introducing the Inverted Residual Block</title>
+        <description>&lt;p&gt;Building upon the success of MobileNetV1, Google released their latest network architecture, MobileNetV2. The new
+network architecture is built off of the original MobileNet model and has several improvements including increased
+throughput and improved accuracy. In this article, I will be introducing the inverted residual block (IRB) which is a
+key component of MobileNetV2.&lt;/p&gt;
+
+&lt;h3 id=&quot;difference-to-other-networks&quot;&gt;Difference to other Networks&lt;/h3&gt;
+
+&lt;p&gt;MobileNetV2 is the latest network training algorithm from Google, and it’s quite possibly one of the most important
+advances in deep learning since inception. The MobileNetV2 architecture is a modular network that allows for more
+flexibility and multiple layers of abstraction, making it easier to customize for specific tasks. Additionally,
+MobileNetV2 has been optimized for mobile devices and offers superior performance compared to other networks.&lt;/p&gt;
+
+&lt;h3 id=&quot;heuristic-of-the-inverted-residual-block&quot;&gt;Heuristic of the (Inverted) residual block&lt;/h3&gt;
+
+&lt;p&gt;First of all, let’s have a look at the figure. It already shows a clear distinction between the residual block and the
+inverted residual block.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/residual-block.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can observe that an Initial residual block (a) follows the “wide- narrow- wide” strategy concerning the amount of
+channels. The input has multiple channels, which are lessened with a lightweight 1x1 convolution. In this manner, the
+next 3x3 convolution has a much smaller number of parameters. To impose inputs and outputs at the end of the number of
+channels is increased once again through another 1×1 convolution. In Keras it looked like this.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;def residual_block(x, squeeze=16, expand=64):
+  m = Conv2D(squeeze, (1,1), activation='relu')(x)
+  m = Conv2D(squeeze, (3,3), activation='relu')(m)
+  m = Conv2D(expand, (1,1), activation='relu')(m)
+  return Add()([m, x])
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;MobileNetV2 goes about using a first-stage 1×1 convolution followed by a second-stage 3×3 convolution in the narrowing
+process. At the beginning of the narrowing process, MobileNetV2 uses a 1×1 convolution followed by the 3×3 convolution.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;def inverted_residual_block(x, expand=64, squeeze=16):
+  m = Conv2D(expand, (1,1), activation='relu')(x)
+  m = DepthwiseConv2D((3,3), activation='relu')(m)
+  m = Conv2D(squeeze, (1,1), activation='relu')(m)
+  return Add()([m, x])
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;advantages-of-the-inverted-residual-block&quot;&gt;Advantages of the Inverted Residual Block&lt;/h4&gt;
+
+&lt;p&gt;The Goal of any Neuronal network is to achieve a good performance. By the name of the MobileNet it is quite clear, that
+the performance is not only measured by accuracy or any similar metric. This model needs to perform a comparable
+accuarcy on an edge device like a mobile phone. Therefore the model size is quite important and with only around 20 MB
+it is extremely small. If you start comparing the runs of the two snippets above, you can see the inverted block has
+fewer parameters. This is one of the achievements compared to a ResNet model which is far bigger.&lt;/p&gt;
+
+&lt;h4 id=&quot;further-improvements&quot;&gt;Further improvements&lt;/h4&gt;
+
+&lt;p&gt;Empirically the performance of the current inverted residual block decreased by several percent and for this reason the
+authors came up with a linear bottleneck. This fancy solution prevents of destroying too much information and is easily
+implemented. We just remove in Tensorflow the ReLU activation function and we do have a linear activation.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;def inverted_linear_residual_block(x, expand=64, squeeze=16):
+  m = Conv2D(expand, (1,1), activation='relu')(x)
+  m = DepthwiseConv2D((3,3),  activation='relu')(m)
+  m = Conv2D(squeeze, (1,1))(m)
+  return Add()([m, x])
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;relu6-activation-function&quot;&gt;Relu6 Activation function&lt;/h3&gt;
+
+&lt;p&gt;Additionally the authors used ReLU6 instead of a ReLU, which limits the activation of activations to no more than a
+maximum of 6. The activation is straight until it is between 0 and 6.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;def relu(x):
+  return max(0, x)
+
+def relu6(x):
+  return min(max(0, x), 6)
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This was introduced due to a fixed point precision in the MobileNetV1 Paper.&lt;/p&gt;
+
+&lt;h3 id=&quot;final-inverted-residual-block&quot;&gt;Final Inverted Residual Block&lt;/h3&gt;
+
+&lt;p&gt;As the last part we need to add a BatchNormalization. Batch Normalization is a technique to normalize the activations in
+the Residual Network. It helps to solve problems of overfitting and it increases the performance.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;def bottleneck_block(x, expand=64, squeeze=16):
+  m = Conv2D(expand, (1,1))(x)
+  m = BatchNormalization()(m)
+  m = Activation('relu6')(m)
+  m = DepthwiseConv2D((3,3))(m)
+  m = BatchNormalization()(m)
+  m = Activation('relu6')(m)
+  m = Conv2D(squeeze, (1,1))(m)
+  m = BatchNormalization()(m)
+  return Add()([m, x])
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;MobileNetV2 is the latest iteration of Google’s state-of-the-art machine learning framework, and it offers a number of
+improvements over its predecessors. One of the most important changes is the introduction of inverted residual blocks,
+which allow for more accurate prediction by reducing the amount of noise in the data. I hope this article was helpful
+for you.&lt;/p&gt;
+
+&lt;p&gt;Many thanks to the authors of the articles:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://paperswithcode.com/method/inverted-residual-block&quot;&gt;arXiv:1801.04381&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://towardsdatascience.com/mobilenetv2-inverted-residuals-and-linear-bottlenecks-8a4362f4ffd5&quot;&gt;Paul-Louis Pröve, 2018, MobileNetV2: Inverted Residuals and Linear Bottlenecks&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;www.google.de&quot;&gt;Ding, Peng &amp;amp; Qian, Huaming &amp;amp; Chu, Shuai. (2022). SlimYOLOv4: lightweight object detector based on YOLOv4. Journal of Real-Time Image Processing. 19. 1-12. 10.1007/s11554-022-01201-7.&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The code blocks are from Paul-Louis Pröve blog post (towardsdatascience.com).&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 06 Jun 2022 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/2022/06/06/inverted-res-block/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2022/06/06/inverted-res-block/</guid>
+        
+        <category>MobileNetV2</category>
+        
+        <category>Neural-Nets</category>
+        
+        <category>Python</category>
+        
+        <category>Residual-Blocks</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>The secret to success? Attention</title>
+        <description>&lt;p&gt;In so many cases this is true. Especially in Deep Learning. The paper Attention is all you need got a lot of attention.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/attention.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2022 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/2022/06/06/attention/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2022/06/06/attention/</guid>
+        
+        <category>Neural-Nets</category>
+        
+        <category>Attention</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>My Programming Languages Spectrum</title>
+        <description>&lt;iframe id=&quot;chart&quot; src=&quot;https://huangxuan.me/PL-chart/&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;width: 100%&quot;&gt;
+&lt;/iframe&gt;
+</description>
+        <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/2020/05/05/pl-chart/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2020/05/05/pl-chart/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

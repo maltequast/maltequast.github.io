@@ -1,6 +1,6 @@
 ---
 title: "Why Minikube is a great alternative to Docker Desktop"
-subtitle: "The road to Kubernetes"
+subtitle: "Road to Kubernetes"
 layout: post
 author: "Malte"
 header-style: text
@@ -21,9 +21,9 @@ to deploy applications, experiment with Kubernetes features, and learn how to us
 option for having a simple Kubernetes cluster up and running on localhost.
 
 Advantages of Minikube:
-Minikube is a great alternative to docker desktop. It is an open source project, driven by the Kubernetes community.
+Minikube is a great alternative to Docker Desktop. It is an open source project, driven by the Kubernetes community.
 Especially for commercial Mac users, it is getting more important. Since Docker has changed the pricing model for Docker
-Desktop. Latest News you can checkout on https://www.docker.com/pricing/.
+Desktop. Latest news [here](https://www.docker.com/pricing/).
 
 Furthermore you can install Minikube on Mac, Windows, and Linux.
 
@@ -44,7 +44,7 @@ It sounds counterintuitive, but install docker as well:
 brew install docker
 ```
 
-This only install the Docker CLI. This is necessary to interact with the Docker Engine on your Minikube cluster.
+This only installs the Docker CLI. This is necessary to interact with the Docker Engine on your Minikube cluster.
 
 Additionaly you need to install hyperkit too:
 
@@ -57,15 +57,17 @@ Excourse on Hyperkit
 lightweight virtual machines and container deployment. [...]HyperKit currently only supports macOS using the
 Hypervisor.framework. It is a core component of Docker Desktop for Mac."
 
-source: https://github.com/moby/hyperkit
+*source: https://github.com/moby/hyperkit*
 
 It seems that we already found a good and lightweight solution for our new Docker environment.
 
-Before we start our Minikube cluster, we want to connect our Docker CLI with out "Docker Engine".
+Before we start our Minikube cluster, we want to connect our Docker CLI with the Docker Engine.
 
 ```
 eval $(minikube docker-env)
 ```
+
+Perhaps you want to connect it permanently, you should add this to your .bashrc or your .bash_profile.
 
 Finally you can start your Minikube cluster.
 
@@ -76,15 +78,17 @@ minikube start --driver=hyperkit --container-runtime=docker --disk-size=50g -p m
 ### Helpful commands
 
 We've seen how to start a minikube cluster. We have defined and installed the first parameters (driver &
-container-runtime). But we can also define more about the hardware as well. By default, it starts with 2 CPUs and 2GB.
+container-runtime). But we can also customize more about the hardware as well. By default, it starts with 2 CPUs and
+2GB.
 We can define the
 
 - memory
 - disk-size
 - cpus
-  But the last parameter is the abbreviation for profile. This is the name for the cluster. We can have multiple
-  profiles with different specifications and clusters.
-  The default profile is named minikube and you can check out all with
+
+But the last parameter is the abbreviation for profile. This is the name for the cluster. We can have multiple
+profiles with different specifications and clusters.
+The default profile is named minikube and you can check all profiles with
 
 ```
 minikube profile list
@@ -163,15 +167,16 @@ minikube addons list
 |-----------------------------|----------|--------------|--------------------------------|
 ```
 
-Depending on the usecase, it might be extremely useful to enable some addons.
-Especially if you want to get started with MLOps, I recommend to enable the registry addon and you can push your image
-to a local registry.
+Depending on the use case, it might be extremely useful to enable some addons.
+Especially if you want to get started with MLOps, I recommend to enable the registry addon. Now you can push your image
+to a local registry and simulate your workflow locally.
 
 ```
 minikube addons enable registry
 ```
 
-At the end when your are done and you want to free some disk space, you can delete the minikube cluster or just stop it and reuse it.
+When your are done with your work and you want to free some disk space, you can delete the minikube cluster or just stop it
+and reuse it.
 
 ```
 #stop the cluster for reuse
@@ -183,9 +188,6 @@ minikube delete
 # delete all clusters
 minikube delete --all
 ```
-
-
-
 
 ### Conclusion
 
@@ -203,6 +205,6 @@ know if you have any questions or suggestions.
 
 This blog post is inspired by:
 
-- https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos
-- https://minikube.sigs.k8s.io/docs/start/
-- 
+- [Ahmedabad, 2021, blog](https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos)
+- [Minikube Documentation](https://minikube.sigs.k8s.io/docs/start/)
+- [Hyperkit Github readme](https://github.com/moby/hyperkit)

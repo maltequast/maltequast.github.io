@@ -12,17 +12,32 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Maltes ML Blog | Maltes Blog">
+        content="Introducing the Inverted Residual Block - Maltes ML Blog | Maltes Blog">
     
-    <meta property="og:type" content="website">
-    <meta property="og:description"
-        content="Insights of ML automation - the future of data analysis!">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Building upon the success of MobileNetV1, Google released their latest network architecture, MobileNetV2. The new
+network architecture is built off of the original MobileNet model and has several i...">
+    
+    <meta property="article:published_time" content=" 2022-06-06T00:00:00Z">
+    
+    
+    <meta property="article:author" content="Malte">
+    
+    
+    <meta property="article:tag" content="MobileNetV2">
+    
+    <meta property="article:tag" content="Neural-Nets">
+    
+    <meta property="article:tag" content="Python">
+    
+    <meta property="article:tag" content="Residual-Blocks">
+    
     
     <meta property="og:image" content="http://0.0.0.0:4000https://avatars.githubusercontent.com/u/40795540?s=400&u=61b6b9370a6d0c1b9bd11eaa47ce8a1ec4c51d8c&v=4">
-    <meta property="og:url" content="http://0.0.0.0:4000/">
+    <meta property="og:url" content="http://0.0.0.0:4000/2022/06/06/inverted-res-block/">
     <meta property="og:site_name" content="Maltes ML Blog | Maltes Blog">
 
-    <title>Maltes ML Blog | Maltes Blog</title>
+    <title>Introducing the Inverted Residual Block - Maltes ML Blog | Maltes Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -31,7 +46,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://0.0.0.0:4000/">
+    <link rel="canonical" href="http://0.0.0.0:4000/2022/06/06/inverted-res-block/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href=" /css/bootstrap.min.css">
@@ -67,8 +82,8 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+    
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -195,238 +210,323 @@
   </div>
 </div>
 
-    <!-- Page Header -->
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/about-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
 
 
 
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/about-bg.jpg');
+        background: ;
+    }
 
+    
+</style>
 
+<header class="intro-header style-text" >
 
-
-<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="site-heading">
-        
-          <h1>Maltes ML Blog</h1>
-          <span class="subheading">Insights of ML automation - the future of data analysis!</span>
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=MobileNetV2" title="MobileNetV2">MobileNetV2</a>
+                        
+                        <a class="tag" href="/archive/?tag=Neural-Nets" title="Neural-Nets">Neural-Nets</a>
+                        
+                        <a class="tag" href="/archive/?tag=Python" title="Python">Python</a>
+                        
+                        <a class="tag" href="/archive/?tag=Residual-Blocks" title="Residual-Blocks">Residual-Blocks</a>
+                        
+                    </div>
+                    <h1>Introducing the Inverted Residual Block</h1>
+                    
+                    <h2 class="subheading">A Component for MobileNetV2</h2>
+                    <span class="meta">Posted by Malte on June 6, 2022</span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </header>
 
 
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
-
-    <!-- USE SIDEBAR -->
-    <!-- PostList Container -->
-    <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12
-      col-xs-12 postlist-container">
-      
-<div class="post-preview">
-    <a href="/2022/06/07/python-right-venv_2/">
-        <h2 class="post-title">
-            Don't Let Python Stop You(2/2)
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Create the Right Environment
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                Poetry for dependency management
-As we’ve seen in the first article, it is crucial to switch to different python version and pyenv helped us with this. If you haven’t read this article, I highly re...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 7, 2022
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/07/python-right-venv_1/">
-        <h2 class="post-title">
-            Don't Let Python Stop You (1/2)
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Create the Right Environment
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                The right tool for the right job
-
-Python is one of the most popular programming languages in the world. It has a large user base, and is often used in web
-development, scientific computing, and dat...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 7, 2022
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/06/minikube-docker-desktop/">
-        <h2 class="post-title">
-            Why Minikube is a great alternative to Docker Desktop
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Road to Kubernetes
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                Introduction: What is Minikube?
-
-Minikube is a single node Kubernetes cluster that runs in a virtual machine on your laptop. It is great for development
-and testing because it is easy to get starte...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 6, 2022
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/06/inverted-res-block/">
-        <h2 class="post-title">
-            Introducing the Inverted Residual Block
-        </h2>
-        
-        <h3 class="post-subtitle">
-            A Component for MobileNetV2
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                Building upon the success of MobileNetV1, Google released their latest network architecture, MobileNetV2. The new
-network architecture is built off of the original MobileNet model and has several i...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 6, 2022
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/06/attention/">
-        <h2 class="post-title">
-            The secret to success? Attention
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Transformers as state of the art
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                In so many cases this is true. Especially in Deep Learning. The paper Attention is all you need got a lot of attention.
 
 
 
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 6, 2022
-    </p>
-</div>
-<hr>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-<!-- Pager -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <!-- Multi-Lingual -->
+                
 
-    </div>
-    <!-- Sidebar Container -->
-    <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12
-      col-xs-12 sidebar-container">
-      <!-- Featured Tags -->
-      
+				<p>Building upon the success of MobileNetV1, Google released their latest network architecture, MobileNetV2. The new
+network architecture is built off of the original MobileNet model and has several improvements including increased
+throughput and improved accuracy. In this article, I will be introducing the inverted residual block (IRB) which is a
+key component of MobileNetV2.</p>
 
+<h3 id="difference-to-other-networks">Difference to other Networks</h3>
 
+<p>MobileNetV2 is the latest network training algorithm from Google, and it’s quite possibly one of the most important
+advances in deep learning since inception. The MobileNetV2 architecture is a modular network that allows for more
+flexibility and multiple layers of abstraction, making it easier to customize for specific tasks. Additionally,
+MobileNetV2 has been optimized for mobile devices and offers superior performance compared to other networks.</p>
 
-      <!-- Short About -->
-      <section class="visible-md visible-lg">
-  <hr>
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-    
-    <img src="https://avatars.githubusercontent.com/u/40795540?s=400&u=61b6b9370a6d0c1b9bd11eaa47ce8a1ec4c51d8c&v=4" />
-    
-    
-    <p>Always asking myself - What's the key to success as a Data Scientist?</p>
-    
-    <!-- SNS Link -->
-    
+<h3 id="heuristic-of-the-inverted-residual-block">Heuristic of the (Inverted) residual block</h3>
 
+<p>First of all, let’s have a look at the figure. It already shows a clear distinction between the residual block and the
+inverted residual block.</p>
 
-<ul class="list-inline">
+<p><img src="/img/residual-block.png" alt="img" /></p>
 
+<p>We can observe that an Initial residual block (a) follows the “wide- narrow- wide” strategy concerning the amount of
+channels. The input has multiple channels, which are lessened with a lightweight 1x1 convolution. In this manner, the
+next 3x3 convolution has a much smaller number of parameters. To impose inputs and outputs at the end of the number of
+channels is increased once again through another 1×1 convolution. In Keras it looked like this.</p>
 
-  
-  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>def residual_block(x, squeeze=16, expand=64):
+  m = Conv2D(squeeze, (1,1), activation='relu')(x)
+  m = Conv2D(squeeze, (3,3), activation='relu')(m)
+  m = Conv2D(expand, (1,1), activation='relu')(m)
+  return Add()([m, x])
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>MobileNetV2 goes about using a first-stage 1×1 convolution followed by a second-stage 3×3 convolution in the narrowing
+process. At the beginning of the narrowing process, MobileNetV2 uses a 1×1 convolution followed by the 3×3 convolution.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>def inverted_residual_block(x, expand=64, squeeze=16):
+  m = Conv2D(expand, (1,1), activation='relu')(x)
+  m = DepthwiseConv2D((3,3), activation='relu')(m)
+  m = Conv2D(squeeze, (1,1), activation='relu')(m)
+  return Add()([m, x])
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="advantages-of-the-inverted-residual-block">Advantages of the Inverted Residual Block</h4>
+
+<p>The Goal of any Neuronal network is to achieve a good performance. By the name of the MobileNet it is quite clear, that
+the performance is not only measured by accuracy or any similar metric. This model needs to perform a comparable
+accuarcy on an edge device like a mobile phone. Therefore the model size is quite important and with only around 20 MB
+it is extremely small. If you start comparing the runs of the two snippets above, you can see the inverted block has
+fewer parameters. This is one of the achievements compared to a ResNet model which is far bigger.</p>
+
+<h4 id="further-improvements">Further improvements</h4>
+
+<p>Empirically the performance of the current inverted residual block decreased by several percent and for this reason the
+authors came up with a linear bottleneck. This fancy solution prevents of destroying too much information and is easily
+implemented. We just remove in Tensorflow the ReLU activation function and we do have a linear activation.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>def inverted_linear_residual_block(x, expand=64, squeeze=16):
+  m = Conv2D(expand, (1,1), activation='relu')(x)
+  m = DepthwiseConv2D((3,3),  activation='relu')(m)
+  m = Conv2D(squeeze, (1,1))(m)
+  return Add()([m, x])
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="relu6-activation-function">Relu6 Activation function</h3>
+
+<p>Additionally the authors used ReLU6 instead of a ReLU, which limits the activation of activations to no more than a
+maximum of 6. The activation is straight until it is between 0 and 6.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>def relu(x):
+  return max(0, x)
+
+def relu6(x):
+  return min(max(0, x), 6)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This was introduced due to a fixed point precision in the MobileNetV1 Paper.</p>
+
+<h3 id="final-inverted-residual-block">Final Inverted Residual Block</h3>
+
+<p>As the last part we need to add a BatchNormalization. Batch Normalization is a technique to normalize the activations in
+the Residual Network. It helps to solve problems of overfitting and it increases the performance.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>def bottleneck_block(x, expand=64, squeeze=16):
+  m = Conv2D(expand, (1,1))(x)
+  m = BatchNormalization()(m)
+  m = Activation('relu6')(m)
+  m = DepthwiseConv2D((3,3))(m)
+  m = BatchNormalization()(m)
+  m = Activation('relu6')(m)
+  m = Conv2D(squeeze, (1,1))(m)
+  m = BatchNormalization()(m)
+  return Add()([m, x])
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>MobileNetV2 is the latest iteration of Google’s state-of-the-art machine learning framework, and it offers a number of
+improvements over its predecessors. One of the most important changes is the introduction of inverted residual blocks,
+which allow for more accurate prediction by reducing the amount of noise in the data. I hope this article was helpful
+for you.</p>
+
+<p>Many thanks to the authors of the articles:</p>
+<ul>
   <li>
-    <a href="https://twitter.com/quastmalte">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
+    <p><a href="https://paperswithcode.com/method/inverted-residual-block">arXiv:1801.04381</a></p>
   </li>
-  
-  
-  
-  
-  
   <li>
-    <a target="_blank" href="https://github.com/maltequast">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
+    <p><a href="https://towardsdatascience.com/mobilenetv2-inverted-residuals-and-linear-bottlenecks-8a4362f4ffd5">Paul-Louis Pröve, 2018, MobileNetV2: Inverted Residuals and Linear Bottlenecks</a></p>
   </li>
-  
-  
+  <li>
+    <p><a href="www.google.de">Ding, Peng &amp; Qian, Huaming &amp; Chu, Shuai. (2022). SlimYOLOv4: lightweight object detector based on YOLOv4. Journal of Real-Time Image Processing. 19. 1-12. 10.1007/s11554-022-01201-7.</a></p>
+  </li>
 </ul>
-  </div>
-</section>
 
-      <!-- Friends Blog -->
-      
+<p>The code blocks are from Paul-Louis Pröve blog post (towardsdatascience.com).</p>
 
-      <!-- Ads -->
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- first shot -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6487568398225121" data-ad-slot="4814308751"
-     data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2022/06/06/attention/" data-toggle="tooltip" data-placement="top" title="The secret to success? Attention">
+                        Previous<br>
+                        <span>The secret to success? Attention</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2022/06/06/minikube-docker-desktop/" data-toggle="tooltip" data-placement="top" title="Why Minikube is a great alternative to Docker Desktop">
+                        Next<br>
+                        <span>Why Minikube is a great alternative to Docker Desktop</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                
+
+                
+            </div>  
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
     </div>
-    
-  </div>
-</div>
+</article>
 
+<!-- add support for mathjax by voleking-->
+
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'right',
+          // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
 
 

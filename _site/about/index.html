@@ -12,17 +12,17 @@
 
     <!-- Open Graph -->
     <meta property="og:title"
-        content="Maltes ML Blog | Maltes Blog">
+        content="About - Maltes ML Blog | Maltes Blog">
     
     <meta property="og:type" content="website">
     <meta property="og:description"
-        content="Insights of ML automation - the future of data analysis!">
+        content=" It's about me">
     
     <meta property="og:image" content="http://0.0.0.0:4000https://avatars.githubusercontent.com/u/40795540?s=400&u=61b6b9370a6d0c1b9bd11eaa47ce8a1ec4c51d8c&v=4">
-    <meta property="og:url" content="http://0.0.0.0:4000/">
+    <meta property="og:url" content="http://0.0.0.0:4000/about/">
     <meta property="og:site_name" content="Maltes ML Blog | Maltes Blog">
 
-    <title>Maltes ML Blog | Maltes Blog</title>
+    <title>About - Maltes ML Blog | Maltes Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -31,7 +31,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://0.0.0.0:4000/">
+    <link rel="canonical" href="http://0.0.0.0:4000/about/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href=" /css/bootstrap.min.css">
@@ -210,8 +210,8 @@
         
         <div class="site-heading">
         
-          <h1>Maltes ML Blog</h1>
-          <span class="subheading">Insights of ML automation - the future of data analysis!</span>
+          <h1>About</h1>
+          <span class="subheading"> It's about me</span>
         </div>
       </div>
     </div>
@@ -228,130 +228,74 @@
     <!-- PostList Container -->
     <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12
       col-xs-12 postlist-container">
-      
-<div class="post-preview">
-    <a href="/2022/06/07/python-right-venv_2/">
-        <h2 class="post-title">
-            Don't Let Python Stop You(2/2)
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Create the Right Environment
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                Poetry for dependency management
-As we’ve seen in the first article, it is crucial to switch to different python version and pyenv helped us with this. If you haven’t read this article, I highly re...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 7, 2022
-    </p>
+                      <!-- Language Selector -->
+                <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+<!--                    <option value="0" selected> German </option>-->
+                    <option value="1"> English </option>
+                </select>
+
+
+
+<!-- Chinese Version
+<div class="zh post-container">
+    
+    
+
 </div>
-<hr>
+-->
 
-<div class="post-preview">
-    <a href="/2022/06/07/python-right-venv_1/">
-        <h2 class="post-title">
-            Don't Let Python Stop You (1/2)
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Create the Right Environment
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                The right tool for the right job
+<!-- English Version -->
+<div class="en post-container">
+    
+    <p>I am a Malte, a Senior Data Scientist with a focus on computer vision and time series analysis.
+I am also very interested in MLOps and enjoy getting my hands dirty with code. I have started and ran my own business,
+so I have a lot of experience working on innovative projects. In addition to all this, I studied business administration
+in University, so I have a strong foundation in the basics of business.</p>
 
-Python is one of the most popular programming languages in the world. It has a large user base, and is often used in web
-development, scientific computing, and dat...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 7, 2022
-    </p>
+<h2 id="recent-projects">Recent Projects</h2>
+
+<hr />
+<p>July 2022 - Present | Senior Data Scientist | Datadrivers GmbH</p>
+
+<p>[5] Working on Recommender Systems in the AWS Cloud. Mainly focusing on the use of Amazon SageMaker and AWS Glue for
+postprocessing tasks.</p>
+
+<hr />
+<p>May 2021 - June 2022 | Data Scientist | Datadrivers GmbH</p>
+
+<p>[4] We have developed a temporal
+fusion transformer, which is used for multivariate time series analysis and demand quantity prediction.
+This project was a great experience for me, due to the size of the data and the fact how to create a
+data driven pipeline with PubSub, Dataflow and Tensorflow.</p>
+
+<hr />
+<p>January 2020 - June 2022 | Data Scientist | Datadrivers GmbH</p>
+
+<p>[3] In a recent project with 60,000 product descriptions that I have processed through a full spacy data pipeline,
+including GCP Cloud Run jobs. I
+have also developed an Annoy Index for similarity scores and processed these data to a Streamlit application.</p>
+
+<p>[3] I have 40,000 images that I have processed through a full data pipeline, including GCP, Tensorflow, and Dataflow. 
+Additionally to this setup I have used a pretrained MobileNetV2 and Streamlit applications as the WebUI.</p>
+
+<p>[2] In this project, we have used a Thompson Sampler (Multi armed bandit) to automate the frequency of ads for a
+Google Cloud Platform customer. We built a model that predicts which ads frequency will be most effective for a given customer, then used
+Airflow to run the model on Google’s infrastructure. The end result was a significant increase in ad click-through rates and an overall
+improvement in customer satisfaction.</p>
+
+<hr />
+<p>Before January 2020 | Data Analytics Consultant | Datadrivers GmbH</p>
+
+<p>[1]    During this time I deepened my knowledge in the field of neural networks. A wide variety of technologies and
+libraries were used to achieve this goal. Using GPUs, various problems could be solved and optimized using PyTorch and
+Tensorflow.
+Additionally I have created several Datawarehouse projects in the Cloud and on-prem.
+A larger selection of projects can be found in the Github repository.</p>
+
+
 </div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/06/minikube-docker-desktop/">
-        <h2 class="post-title">
-            Why Minikube is a great alternative to Docker Desktop
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Road to Kubernetes
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                Introduction: What is Minikube?
-
-Minikube is a single node Kubernetes cluster that runs in a virtual machine on your laptop. It is great for development
-and testing because it is easy to get starte...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 6, 2022
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/06/inverted-res-block/">
-        <h2 class="post-title">
-            Introducing the Inverted Residual Block
-        </h2>
-        
-        <h3 class="post-subtitle">
-            A Component for MobileNetV2
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                Building upon the success of MobileNetV1, Google released their latest network architecture, MobileNetV2. The new
-network architecture is built off of the original MobileNet model and has several i...
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 6, 2022
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2022/06/06/attention/">
-        <h2 class="post-title">
-            The secret to success? Attention
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Transformers as state of the art
-        </h3>
-        
-        <div class="post-content-preview">
-            
-                In so many cases this is true. Especially in Deep Learning. The paper Attention is all you need got a lot of attention.
 
 
-
-            
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Malte on June 6, 2022
-    </p>
-</div>
-<hr>
-
-
-<!-- Pager -->
 
 
     </div>
@@ -562,7 +506,7 @@ network architecture is built off of the original MobileNet model and has severa
     function generateCatalog(selector) {
 
         // interop with multilangual 
-        if ('' == 'true') {
+        if ('true' == 'true') {
             _containerSelector = 'div.post-container.active'
         } else {
             _containerSelector = 'div.post-container'
@@ -619,6 +563,58 @@ network architecture is built off of the original MobileNet model and has severa
 
 
 <!-- Multi-Lingual -->
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // Changes at v1.8.1: include lang flag as a url query. This interop well with catalog hash anchors.
+    function getLang() { return new URLSearchParams(document.location.search).get("lang") }
+
+    function setLang(newLang) {
+        var params = new URLSearchParams(document.location.search)
+        params.set("lang", newLang)
+        document.location.search = params.toString()  // refresh.
+    }
+
+    // handle render
+    function _render() {
+        var lang = getLang()
+        // en
+        if (lang == "en") {
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $en.classList.add("active");
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            // default to zh-cn
+        } else {
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $zh.classList.add("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
+        }
+        // interop with catalog 
+        generateCatalog(".catalog-body");
+    }
+
+    // handle select change
+    function onLanChange(index) {
+        if (index == 0) {
+            lang = "zh"
+        } else {
+            lang = "en"
+        }
+        setLang(lang)
+    }
+
+    // init
+    _render();
+</script>
 
 
 <!-- Simple Jekyll Search -->

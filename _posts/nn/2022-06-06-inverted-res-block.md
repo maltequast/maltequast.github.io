@@ -118,9 +118,14 @@ improvements over its predecessors. One of the most important changes is the int
 which allow for more accurate prediction by reducing the amount of noise in the data. I hope this article was helpful
 for you.
 
-The article is inspired by
-    - https://towardsdatascience.com/mobilenetv2-inverted-residuals-and-linear-bottlenecks-8a4362f4ffd5
-    - https://paperswithcode.com/method/inverted-residual-block
+Many thanks to the authors of the articles:
+- [arXiv:1801.04381](https://paperswithcode.com/method/inverted-residual-block) 
+
+- [Paul-Louis Pröve, 2018, MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://towardsdatascience.com/mobilenetv2-inverted-residuals-and-linear-bottlenecks-8a4362f4ffd5)
+
+- [Ding, Peng & Qian, Huaming & Chu, Shuai. (2022). SlimYOLOv4: lightweight object detector based on YOLOv4. Journal of Real-Time Image Processing. 19. 1-12. 10.1007/s11554-022-01201-7.](www.google.de)
+
+
 
 The code blocks are from Paul-Louis Pröve blog post (towardsdatascience.com).
 
