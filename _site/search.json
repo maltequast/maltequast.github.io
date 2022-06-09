@@ -1,0 +1,51 @@
+[
+  
+    {
+      "title"    : "Don&#39;t Let Python Stop You(2/2)",
+      "subtitle" : "Create the Right Environment",
+      "tags"     : "Pyenv, Poetry, Python, Venv, Dependency-Management",
+      "url"      : "/2022/06/07/python-right-venv_2/",
+      "date"     : "2022-06-07 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Don&#39;t Let Python Stop You (1/2)",
+      "subtitle" : "Create the Right Environment",
+      "tags"     : "Pyenv, Poetry, Python, Venv, Dependency-Management",
+      "url"      : "/2022/06/07/python-right-venv_1/",
+      "date"     : "2022-06-07 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Why Minikube is a great alternative to Docker Desktop",
+      "subtitle" : "Road to Kubernetes",
+      "tags"     : "Minikube, Docker, Docker-Desktop, Kubernetes",
+      "url"      : "/2022/06/06/minikube-docker-desktop/",
+      "date"     : "2022-06-06 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "Introducing the Inverted Residual Block",
+      "subtitle" : "A Component for MobileNetV2",
+      "tags"     : "MobileNetV2, Neural-Nets, Python, Residual-Blocks",
+      "url"      : "/2022/06/06/inverted-res-block/",
+      "date"     : "2022-06-06 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "The secret to success? Attention",
+      "subtitle" : "Transformers as state of the art",
+      "tags"     : "Neural-Nets, Attention, Python",
+      "url"      : "/2022/06/06/attention/",
+      "date"     : "2022-06-06 00:00:00 +0000"
+    } ,
+  
+    {
+      "title"    : "My Programming Languages Spectrum",
+      "subtitle" : "我的编程语言光谱",
+      "tags"     : "",
+      "url"      : "/2020/05/05/pl-chart/",
+      "date"     : "2020-05-05 00:00:00 +0000"
+    } 
+  
+]
