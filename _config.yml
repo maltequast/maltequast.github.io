@@ -76,13 +76,13 @@ kramdown:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Data Scientist on the way to automate ML"
+sidebar-about-description: "Data Scientist thrilled to automate ML"
 sidebar-avatar: https://avatars.githubusercontent.com/u/40795540?s=400&u=61b6b9370a6d0c1b9bd11eaa47ce8a1ec4c51d8c&v=4 # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # Featured Tags
-featured-tags: false                     # whether or not using Feature-Tags
+featured-tags: true                     # whether or not using Feature-Tags
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
 
 
