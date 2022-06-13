@@ -67,7 +67,7 @@ Finally you can start your Minikube cluster.
 minikube start --driver=hyperkit --container-runtime=docker --disk-size=50g -p minikube
 ```
 
-Now you need to connect the Docker CLI with your Minikube cluster (Docker Engine), otherweise you can't manage any
+Now you need to connect the Docker CLI with your Minikube cluster (Docker Engine), otherwise you can't manage any
 Docker containers.
 
 ```
