@@ -1,6 +1,6 @@
 ---
 title: "Introducing the Inverted Residual Block"
-subtitle: "A Component for MobileNetV2"
+subtitle: "A Component of the MobileNetV2"
 layout: post
 author: "Malte"
 header-style: text
