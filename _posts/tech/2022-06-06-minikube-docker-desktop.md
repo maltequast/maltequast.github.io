@@ -69,13 +69,13 @@ eval $(minikube docker-env)
 
 Perhaps you want to connect it permanently, you should add this to your .bashrc or your .bash_profile.
 
-Finally you can start your Minikube cluster.
+This is all you have to do, to start your Minikube cluster.
 
 ```
 minikube start --driver=hyperkit --container-runtime=docker --disk-size=50g -p minikube
 ```
 
-Now you need to connect the Docker CLI with your Minikube cluster (Docker Engine), otherwise you can't manage any
+But keep in mind, that you need to connect the Docker CLI with your Minikube cluster (Docker Engine), otherwise you can't manage any
 Docker containers.
 
 ```
