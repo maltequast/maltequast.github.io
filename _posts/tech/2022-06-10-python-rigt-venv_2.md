@@ -1,6 +1,6 @@
 ---
-title: "Don't Let Python Stop You(2/2)"
-subtitle: "Create the Right Environment"
+title: "Don't Let Python Stop You (2/2)"
+subtitle: "Create the Right Dependencies"
 layout: post
 author: "Malte"
 header-style: text
