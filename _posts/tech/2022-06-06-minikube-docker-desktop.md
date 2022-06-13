@@ -61,19 +61,21 @@ Hypervisor.framework. It is a core component of Docker Desktop for Mac."
 
 It seems that we already found a good and lightweight solution for our new Docker environment.
 
-Before we start our Minikube cluster, we want to connect our Docker CLI with the Docker Engine.
-
-```
-eval $(minikube docker-env)
-```
-
-Perhaps you want to connect it permanently, you should add this to your .bashrc or your .bash_profile.
-
 Finally you can start your Minikube cluster.
 
 ```
 minikube start --driver=hyperkit --container-runtime=docker --disk-size=50g -p minikube
 ```
+
+Now you need to connect the Docker CLI with your Minikube cluster (Docker Engine), otherweise you can't manage any
+Docker containers.
+
+```
+eval $(minikube docker-env)
+```
+
+I recommend that you connect it permanently, so you just need to the eval command from above and add this to your
+.bashrc or your .bash_profile.
 
 ### Helpful commands
 
@@ -175,7 +177,8 @@ to a local registry and simulate your workflow locally.
 minikube addons enable registry
 ```
 
-When your are done with your work and you want to free some disk space, you can delete the minikube cluster or just stop it
+When your are done with your work and you want to free some disk space, you can delete the minikube cluster or just stop
+it
 and reuse it.
 
 ```
