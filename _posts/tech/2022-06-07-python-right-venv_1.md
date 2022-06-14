@@ -56,7 +56,15 @@ Now you can list all possible python version that can be installed
 pyenv install -l
 ```
 
-Choose your version and install it. In my case I chose Python version 3.10.4.
+In contrast, with the versions command you can check which versions are locally already available.
+
+```
+pyenv versions
+```
+
+In our case, we don't have a Python version available from pyenv.
+
+That's why we need to choose a version and install it. In my case I chose Python version 3.10.4.
 
 ```
 pyenv install 3.10.4
