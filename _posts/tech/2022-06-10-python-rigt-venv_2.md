@@ -310,6 +310,14 @@ I just added all parameters that came to my mind. You want of course the ml extr
 ignore the dev- dependencies. The last parameter "without-hashes" is just to make it more readable and ignore the hashes
 that are created from the poetry.lock file.
 
+
+### Update
+
+After updating Poetry, a new error message appeared. This was related to pyenv and detecting the correct Python environment. This can be easily fixed by:
+```
+poetry env use -- $(which python)
+```
+
 ## Conclusion
 
 Poetry is great tool and it helped me a lot during my projects. There are many feature that I really appreciate
