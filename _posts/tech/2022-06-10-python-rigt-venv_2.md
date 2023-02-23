@@ -292,7 +292,7 @@ I like to create my toml file in noninteractive mode. That's why I added this pa
 Now you just need your requirements.txt and your pyproject.toml to be in the project folder and run this command.
 
 ```
-RUN awk '{print $1}' requirements.txt | xargs -n1 poetry add
+awk '{print $1}' requirements.txt | xargs -n1 poetry add
 ```
 
 It just adds every library line by line and ignoring (!) the version.
